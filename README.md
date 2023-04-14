@@ -9,7 +9,7 @@ This is where your description should go. Limit it to a paragraph or two. Consid
 
 With this command `php artisan routes:export collection_name`, a json file will be generated and can be imported from postman, for a good separation between the modules folders and subfolders tree will be generated , this division is based on the paths of the urls.
 
-In `POST` and `PUT`, if the controller action use a FormRequest, all rules attributes will be extracted and created in postman body request.
+In `POST` and `PUT` Methods, if the controller action use a FormRequest, all rules attributes will be extracted and created in postman body request.
 
 <img src="https://github.com/halimzidoune/laravel-postman-api/blob/main/laravel-api-to-postman-featured.png" width="100%" />
 
