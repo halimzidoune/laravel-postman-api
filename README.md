@@ -11,7 +11,7 @@ With this command `php artisan routes:export collection_name`, a json file will 
 
 In `POST` and `PUT`, if the controller action use a FormRequest, all rules attributes will be extracted and created in postman body request.
 
-[<img src="https://github.com/halimzidoune/laravel-postman-api/blob/main/laravel-api-to-postman-featured.png" width="100%" />]
+<img src="https://github.com/halimzidoune/laravel-postman-api/blob/main/laravel-api-to-postman-featured.png" width="100%" />
 
 
 ## Installation
