@@ -32,7 +32,7 @@ This is the contents of the published config file:
 ```php
 return [
     'base_url' => 'http://localhost:8000', // API Host url
-    'export_folder' => 'postman', // The destination folder where the collection.json file will be geneated
+    'export_folder' => 'postman', // The destination folder where the collection.json file will be generated
 ];
 ```
 
