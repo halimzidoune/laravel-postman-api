@@ -4,8 +4,8 @@ namespace Halimzidoune\LaravelPostmanApi\Commands;
 
 use Halimzidoune\LaravelPostmanApi\Classes\Folder;
 use Halimzidoune\LaravelPostmanApi\FileBuilder\PostmanCollectionBuilder;
-use Illuminate\Contracts\Config\Repository;
 use Illuminate\Console\Command;
+use Illuminate\Contracts\Config\Repository;
 use Illuminate\Support\Facades\Storage;
 
 class LaravelPostmanApiCommand extends Command
@@ -29,25 +29,24 @@ class LaravelPostmanApiCommand extends Command
     {
         $routes = \Illuminate\Support\Facades\Route::getRoutes();
 
-        $root = new Folder("root");
+        $root = new Folder('root');
 
-        foreach ($routes as $route){
-            if(in_array("api", $route->action["middleware"])){
+        foreach ($routes as $route) {
+            if (in_array('api', $route->action['middleware'])) {
                 $root->addRoute($route, $route->uri);
             }
         }
 
         $structure = $builder->initPostmanStructure($this->argument('name'));
 
-        $structure["item"] = $builder->build($root)["item"];
+        $structure['item'] = $builder->build($root)['item'];
 
-        $exportFolder = config('postman-api.export_folder') ?? "postman";
-        $exportFile =  $exportFolder."/".date('Y_m_d_His_').$this->argument('name').".json";
+        $exportFolder = config('postman-api.export_folder') ?? 'postman';
+        $exportFile = $exportFolder.'/'.date('Y_m_d_His_').$this->argument('name').'.json';
 
-        Storage::disk($this->config['disk'])->put($exportFile, json_encode($structure, JSON_PRETTY_PRINT|JSON_UNESCAPED_SLASHES));
+        Storage::disk($this->config['disk'])->put($exportFile, json_encode($structure, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
 
         $this->info('Collection generated successfully: '.storage_path('app/'.$exportFile));
-
 
         return self::SUCCESS;
     }

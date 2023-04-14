@@ -11,24 +11,24 @@ class PostmanCollectionBuilder
     {
         $result =
             [
-                "info" => [
-                    "_postman_id" => uniqid(),
-                    "name" => $collection_name,
-                    "schema" => "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+                'info' => [
+                    '_postman_id' => uniqid(),
+                    'name' => $collection_name,
+                    'schema' => 'https://schema.getpostman.com/json/collection/v2.1.0/collection.json',
                 ],
-                "item" => [],
-                "variable" => [
+                'item' => [],
+                'variable' => [
                     [
-                        "key" => "base_url",
-                        "value" => config('postman-api.base_url') ?? "http://localhost:8000",
-                        "type" => "default"
+                        'key' => 'base_url',
+                        'value' => config('postman-api.base_url') ?? 'http://localhost:8000',
+                        'type' => 'default',
                     ],
                     [
-                        "key" => "token",
-                        "value" => "your_token",
-                        "type" => "default"
-                    ]
-                ]
+                        'key' => 'token',
+                        'value' => 'your_token',
+                        'type' => 'default',
+                    ],
+                ],
             ];
 
         return $result;
@@ -50,8 +50,8 @@ class PostmanCollectionBuilder
         }
 
         return [
-            "name" => $folder->getName(),
-            "item" => array_merge($requests, $folders)
+            'name' => $folder->getName(),
+            'item' => array_merge($requests, $folders),
         ];
 
     }
@@ -59,77 +59,77 @@ class PostmanCollectionBuilder
     protected function buildRequestNode(Route $route, $request_name)
     {
 
-        $full_url = "{{base_url}}/" . $route->uri;
-        $middlewares = $route->action["middleware"];
+        $full_url = '{{base_url}}/'.$route->uri;
+        $middlewares = $route->action['middleware'];
 
         $fields = $this->getRequestFieldsOfRoute($route);
 
         $auth = [
-            "type" => "bearer",
-            "bearer" => [
+            'type' => 'bearer',
+            'bearer' => [
                 [
-                    "key" => "token",
-                    "value" => "{{token}}",
-                    "type" => "string"
-                ]
-            ]
+                    'key' => 'token',
+                    'value' => '{{token}}',
+                    'type' => 'string',
+                ],
+            ],
         ];
 
         $method = $route->methods[0];
 
         $request = [
-            "auth" => $auth,
-            "method" => $method,
-            "header" => [],
-            "body" => [],
-            "url" => [
-                "raw" => $full_url,
-                "host" => [
-                    "{{base_url}}"
+            'auth' => $auth,
+            'method' => $method,
+            'header' => [],
+            'body' => [],
+            'url' => [
+                'raw' => $full_url,
+                'host' => [
+                    '{{base_url}}',
                 ],
-                "path" => [
-                    $route->uri
-                ]
-            ]
+                'path' => [
+                    $route->uri,
+                ],
+            ],
         ];
 
-        if (in_array($method, ["POST", "PUT"])) {
+        if (in_array($method, ['POST', 'PUT'])) {
             $form = [];
 
-            if ($method == "PUT") {
+            if ($method == 'PUT') {
                 $form[] = [
-                    "key" => "_method",
-                    "value" => "PUT",
-                    "type" => "default"
+                    'key' => '_method',
+                    'value' => 'PUT',
+                    'type' => 'default',
                 ];
             }
             foreach ($fields as $field) {
                 $form[] = [
-                    "key" => $field,
-                    "value" => "test",
-                    "type" => "default"
+                    'key' => $field,
+                    'value' => 'test',
+                    'type' => 'default',
                 ];
             }
 
-            $request["body"] = [
-                "mode" => "formdata",
-                "formdata" => $form
+            $request['body'] = [
+                'mode' => 'formdata',
+                'formdata' => $form,
             ];
 
         }
 
         return [
-                "name" => ucfirst(strtolower($method)) . " " . $request_name,
-                "request" => $request,
-                "response" => []
+            'name' => ucfirst(strtolower($method)).' '.$request_name,
+            'request' => $request,
+            'response' => [],
         ];
     }
 
     protected function getRequestFieldsOfRoute(Route $route)
     {
-        if (in_array("POST", $route->methods) && array_key_exists("controller", $route->action)) {
+        if (in_array('POST', $route->methods) && array_key_exists('controller', $route->action)) {
 
-            $controller = explode("@", $route->action["controller"]);
+            $controller = explode('@', $route->action['controller']);
 
             if (count($controller) == 2) {
                 $controllerClass = $controller[0];
@@ -159,7 +159,7 @@ class PostmanCollectionBuilder
 
                                     }
 
-                                };
+                                }
                             }
                         }
                     }
@@ -173,5 +173,4 @@ class PostmanCollectionBuilder
 
         return [];
     }
-
 }
