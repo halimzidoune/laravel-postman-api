@@ -6,7 +6,7 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/halimzidoune/laravel-postman-api.svg?style=flat-square)](https://packagist.org/packages/halimzidoune/laravel-postman-api)
 
 
-With this command `php artisan routes:export collection_name`, a json file will be generated and can be imported from postman, for a good separation between the modules folders and subfolders tree will be generated , this division is based on the paths of the urls.
+With this command: `php artisan routes:export collection_name`, a json file will be generated and can be imported from postman, for a good separation between the API modules, folders and subfolders tree will be generated , this division is based on the paths of the urls.
 
 In `POST` and `PUT` Methods, if the controller action use a FormRequest, all rules attributes will be extracted and created in postman body request.
 
