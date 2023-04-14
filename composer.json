@@ -1,17 +1,17 @@
 {
-    "name": ":vendor_slug/:package_slug",
-    "description": ":package_description",
+    "name": "halimzidoune/laravel-postman-api",
+    "description": "This package allow to export all API routes from your laravel project to be used in postman and make tests manualy.",
     "keywords": [
-        ":vendor_name",
+        "halimzidoune",
         "laravel",
-        ":package_slug"
+        "laravel-postman-api"
     ],
-    "homepage": "https://github.com/:vendor_slug/:package_slug",
+    "homepage": "https://github.com/halimzidoune/laravel-postman-api",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
+            "name": "zidoune halim",
+            "email": "halimzidoune@gmail.com",
             "role": "Developer"
         }
     ],
@@ -35,13 +35,13 @@
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src/",
-            "VendorName\\Skeleton\\Database\\Factories\\": "database/factories/"
+            "Halimzidoune\\LaravelPostmanApi\\": "src/",
+            "Halimzidoune\\LaravelPostmanApi\\Database\\Factories\\": "database/factories/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests/"
+            "Halimzidoune\\LaravelPostmanApi\\Tests\\": "tests/"
         }
     },
     "scripts": {
@@ -61,10 +61,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "VendorName\\Skeleton\\SkeletonServiceProvider"
+                "Halimzidoune\\LaravelPostmanApi\\LaravelPostmanApiServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "VendorName\\Skeleton\\Facades\\Skeleton"
+                "LaravelPostmanApi": "Halimzidoune\\LaravelPostmanApi\\Facades\\LaravelPostmanApi"
             }
         }
     },

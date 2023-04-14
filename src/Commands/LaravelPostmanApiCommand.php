@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace Halimzidoune\LaravelPostmanApi\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class LaravelPostmanApiCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'laravel-postman-api';
 
     public $description = 'My command';
 
