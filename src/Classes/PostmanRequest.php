@@ -7,6 +7,7 @@ use Illuminate\Routing\Route;
 class PostmanRequest
 {
     protected $name;
+
     protected $route;
 
     public function __construct($name, Route $route)
