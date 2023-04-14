@@ -19,7 +19,6 @@ class LaravelPostmanApiServiceProvider extends PackageServiceProvider
             ->name('laravel-postman-api')
             ->hasConfigFile()
             ->hasViews()
-            ->hasMigration('create_laravel-postman-api_table')
             ->hasCommand(LaravelPostmanApiCommand::class);
     }
 }
