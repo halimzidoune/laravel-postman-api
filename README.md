@@ -39,11 +39,9 @@ return [
 
 ## Usage
 
-```php
-$laravelPostmanApi = new Halimzidoune\LaravelPostmanApi();
-echo $laravelPostmanApi->echoPhrase('Hello, Halimzidoune!');
+```bash
+php artisan routes:export collection_name
 ```
-
 
 ## Changelog
 
