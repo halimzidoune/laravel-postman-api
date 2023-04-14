@@ -5,7 +5,6 @@
 [![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/halimzidoune/laravel-postman-api/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/halimzidoune/laravel-postman-api/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/halimzidoune/laravel-postman-api.svg?style=flat-square)](https://packagist.org/packages/halimzidoune/laravel-postman-api)
 
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
 
 With this command `php artisan routes:export collection_name`, a json file will be generated and can be imported from postman, for a good separation between the modules folders and subfolders tree will be generated , this division is based on the paths of the urls.
 
