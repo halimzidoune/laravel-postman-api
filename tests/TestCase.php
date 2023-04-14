@@ -2,9 +2,9 @@
 
 namespace Halimzidoune\LaravelPostmanApi\Tests;
 
+use Halimzidoune\LaravelPostmanApi\LaravelPostmanApiServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Halimzidoune\LaravelPostmanApi\LaravelPostmanApiServiceProvider;
 
 class TestCase extends Orchestra
 {

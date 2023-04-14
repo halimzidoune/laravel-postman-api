@@ -2,9 +2,9 @@
 
 namespace Halimzidoune\LaravelPostmanApi;
 
+use Halimzidoune\LaravelPostmanApi\Commands\LaravelPostmanApiCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Halimzidoune\LaravelPostmanApi\Commands\LaravelPostmanApiCommand;
 
 class LaravelPostmanApiServiceProvider extends PackageServiceProvider
 {
