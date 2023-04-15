@@ -74,7 +74,7 @@ class Folder
     {
         $index = $this->getFolderIndex($name);
         if ($index >= 0) {
-            return $this->folder($index);
+            return $this->getFolder($index);
         }
 
         return null;
@@ -82,7 +82,7 @@ class Folder
 
     public function getFolder($index)
     {
-        return $this->folder($index);
+        return $this->folders[$index];
     }
 
     public function folderExists($name)
