@@ -7,11 +7,8 @@ use Illuminate\Routing\Route;
 class Folder
 {
     protected $folders = [];
-
     protected $requests = [];
-
     protected $name;
-
     public function __construct($name)
     {
         $this->name = $name;
@@ -58,7 +55,6 @@ class Folder
     {
         $request = new PostmanRequest($name, $route);
         $this->requests[] = $request;
-
         return $request;
     }
 

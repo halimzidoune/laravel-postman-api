@@ -3,6 +3,7 @@
 namespace Halimzidoune\LaravelPostmanApi\FileBuilder;
 
 use Halimzidoune\LaravelPostmanApi\Classes\Folder;
+use Halimzidoune\LaravelPostmanApi\Classes\PostmanRequest;
 use Illuminate\Routing\Route;
 
 class PostmanCollectionBuilder
@@ -39,7 +40,7 @@ class PostmanCollectionBuilder
 
         $requests = [];
         foreach ($folder->getRequests() as $request) {
-            $requests[] = $this->buildRequestNode($request->getRoute(), $request->getName());
+            $requests[] = $this->buildRequestNode($request, $request->getName());
         }
 
         $folders = [];
@@ -56,8 +57,9 @@ class PostmanCollectionBuilder
 
     }
 
-    protected function buildRequestNode(Route $route, $request_name)
+    protected function buildRequestNode(PostmanRequest $postmanRequest, $request_name)
     {
+        $route = $postmanRequest->getRoute();
 
         $full_url = '{{base_url}}/'.$route->uri;
         $middlewares = $route->action['middleware'];
@@ -75,7 +77,7 @@ class PostmanCollectionBuilder
             ],
         ];
 
-        $method = $route->methods[0];
+        $method = $postmanRequest->getMethod();
 
         $request = [
             'auth' => $auth,
@@ -119,7 +121,7 @@ class PostmanCollectionBuilder
         }
 
         return [
-            'name' => ucfirst(strtolower($method)).' '.$request_name,
+            'name' => $request_name.' ['.ucfirst(strtolower($method))."] [".$postmanRequest->getController() ."] ".$postmanRequest->getAction(),
             'request' => $request,
             'response' => [],
         ];
