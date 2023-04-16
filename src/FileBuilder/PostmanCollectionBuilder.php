@@ -121,7 +121,7 @@ class PostmanCollectionBuilder
         }
 
         return [
-            'name' => $request_name.' ['.ucfirst(strtolower($method))."] [".$postmanRequest->getController() ."] ".$postmanRequest->getAction(),
+            'name' => $request_name.' ['.ucfirst(strtolower($method)).'] ['.$postmanRequest->getController().'] '.$postmanRequest->getAction(),
             'request' => $request,
             'response' => [],
         ];

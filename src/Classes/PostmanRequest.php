@@ -32,11 +32,13 @@ class PostmanRequest
         return $this->route;
     }
 
-    public function getMethod(){
+    public function getMethod()
+    {
         return $this->route->methods[0];
     }
 
-    public function getAction(){
+    public function getAction()
+    {
         $function = null;
         $controller = explode('@', $this->route->action['controller']);
         if (count($controller) == 2) {
@@ -47,7 +49,8 @@ class PostmanRequest
         return $function;
     }
 
-    public function getController(){
+    public function getController()
+    {
         $controllerClass = null;
         $controller = explode('@', $this->route->action['controller']);
         if (count($controller) == 2) {
