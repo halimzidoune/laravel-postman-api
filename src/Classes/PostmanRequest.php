@@ -40,10 +40,12 @@ class PostmanRequest
     public function getAction()
     {
         $function = null;
-        $controller = explode('@', $this->route->action['controller']);
-        if (count($controller) == 2) {
-            $controllerClass = $controller[0];
-            $function = $controller[1];
+        if ($this->route->action && isset($this->route->action['controller'])) {
+            $controller = explode('@', $this->route->action['controller']);
+            if (count($controller) == 2) {
+                $controllerClass = $controller[0];
+                $function = $controller[1];
+            }
         }
 
         return $function;
@@ -52,10 +54,12 @@ class PostmanRequest
     public function getController()
     {
         $controllerClass = null;
-        $controller = explode('@', $this->route->action['controller']);
-        if (count($controller) == 2) {
-            $controllerClass = $controller[0];
-            $function = $controller[1];
+        if ($this->route->action && isset($this->route->action['controller'])) {
+            $controller = explode('@', $this->route->action['controller']);
+            if (count($controller) == 2) {
+                $controllerClass = $controller[0];
+                $function = $controller[1];
+            }
         }
 
         return $controllerClass;
