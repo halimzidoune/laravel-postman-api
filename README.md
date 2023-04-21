@@ -1,4 +1,4 @@
-# Export your Laravel API Routes into a postman Collection.
+# Export Laravel API Routes into a postman Collection.
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/halimzidoune/laravel-postman-api.svg?style=flat-square)](https://packagist.org/packages/halimzidoune/laravel-postman-api)
 [![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/halimzidoune/laravel-postman-api/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/halimzidoune/laravel-postman-api/actions?query=workflow%3Arun-tests+branch%3Amain)
