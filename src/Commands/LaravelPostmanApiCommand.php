@@ -32,7 +32,11 @@ class LaravelPostmanApiCommand extends Command
         $root = new Folder('root');
 
         foreach ($routes as $route) {
-            if (in_array('api', $route->action['middleware'])) {
+            if(is_array($route->action['middleware'])){
+                if (in_array('api', $route->action['middleware'])) {
+                    $root->addRoute($route, $route->uri);
+                }
+            }elseif ($route->action['middleware'] == "api"){
                 $root->addRoute($route, $route->uri);
             }
         }
